@@ -26,9 +26,14 @@ namespace VertoExcercise.Controllers
             {
                 var innerPage = client.GetWikiImages(geoSearch.Pageid);
                 var innerResult = innerPage;
+                string title = string.Empty;
                 foreach (var wikiImage in  innerResult.Images)
                 {
-                    titles.Add(wikiImage.Title);
+                    if (wikiImage.Title.StartsWith("File:"))
+                        title = wikiImage.Title.Substring("File:".Length + 1);
+                    else
+                        title = wikiImage.Title;
+                    titles.Add(title);
                 }
             }
 
