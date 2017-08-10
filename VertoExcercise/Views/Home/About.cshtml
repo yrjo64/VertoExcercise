@@ -1,7 +1,25 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewData["Title"] = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>Use a pre-defined location (you can set that to whatever value you like) to get 50 English language</p>
+<p> Wikipedia articles nearest to that location. Find the most similar image titles used in those articles.</p>
+<p>
+    <h3>Requirements:</h3>
+    <ul>
+        <li>Use C# or F#</li>
+        <li>You can define yourself how to measure image title similarity</li>
+        <li>
+            Present the results in a very simple UI. For example one text view with a list of most similar
+            image titles.
+        </li>
+        <li>
+            Think this as a something that will be deployed to production. Pay attention to readability,
+            modularity and maintainability
+        </li>
+    </ul>
+</p>
+<br />
+
