@@ -1,4 +1,4 @@
-﻿# vertoanalytics
+﻿# VertoExcercise
 Verto assignment stage (2nd stage) 
 
 ### Excercise
