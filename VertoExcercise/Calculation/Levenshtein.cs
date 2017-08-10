@@ -7,74 +7,7 @@ namespace VertoExcercise.Calculation
 {
     public class Levenshtein
     {
-        public int LevenshteinDistance2(string s, string t)
-        {
-            // for all i and j, d[i,j] will hold the Levenshtein distance between
-            // the first i characters of s and the first j characters of t
-            // note that d has (m+1)*(n+1) values
-            int len_s = s.Length + 1;
-            int len_t = t.Length + 1;
-            int[,] d = new int[len_s+1, len_t+1];
-
-            //set each element in d to zero
-            for (int i = 0; i < len_s; i++)
-            {
-                for (int j = 0; j < len_t; j++)
-                {
-                    d[i, j] = 0;
-                }
-            }
-
-            // source prefixes can be transformed into empty string by
-            // dropping all characters
-            //for i from 1 to m:
-            //d[i, 0] := i
-            for (int i = 1; i < len_s; i++)
-                d[i, 0] = i;
-
-            // target prefixes can be reached from empty source prefix
-            // by inserting every character
-            //for j from 1 to n:
-            //d[0, j] := j
-            for (int j = 1; j < len_t; j++)
-                d[0, j] = j;
-
-            //for j from 1 to n:
-            //for i from 1 to m:
-            //if s[i] = t[j]:
-            //substitutionCost := 0
-            //else:
-            //substitutionCost := 1
-            //d[i, j] := minimum(d[i-1, j] + 1,                   // deletion
-            //    d[i, j-1] + 1,                   // insertion
-            //    d[i-1, j-1] + substitutionCost)  // substitution
-
-            for (int j = 1; j < len_t; j++)
-            {
-                for (int i = 1; i < len_s; i++)
-                {
-                    var substitutionCost = 0;
-                    char cs = s[i-1];
-                    char ct = t[j-1];
-                    if (cs == ct)
-                    {
-                        substitutionCost = 0;
-                    }
-                    else
-                    {
-                        substitutionCost = 1;
-                    }
-                    d[i, j] = minimum(
-                        d[i - 1, j] + 1,
-                        d[i, j - 1] + 1,
-                        d[i - i, j - 1] + substitutionCost
-                    );
-                }
-            }
-            //return d[m, n]
-            return d[len_s, len_t];
-        }
-
+     
         /**
          * The Levenshtein distance, or edit distance, between two words is the
          * minimum number of single-character edits (insertions, deletions or
