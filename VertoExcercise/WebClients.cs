@@ -66,15 +66,15 @@ namespace VertoExcercise
                     JObject imageSearch = JObject.Parse(response);
                     // get JSON result objects into a list
                     IList<JToken> results = imageSearch["query"]["pages"][Convert.ToString(pageid)]["images"].Children().ToList();
-                    IList<Image> searchResults = new List<Image>();
+                    IList<Image> images = new List<Image>();
                     foreach (JToken result in results)
                     {
                         // JToken.ToObject is a helper method that uses JsonSerializer internally
                         Image searchResult = result.ToObject<Image>();
-                        searchResults.Add(searchResult);
+                        images.Add(searchResult);
                     }
                     innerPage.Pageid = pageid;
-                    innerPage.Images = searchResults.ToList();
+                    innerPage.Images = images.ToList();
                     return innerPage;
                 }
             }

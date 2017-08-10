@@ -24,13 +24,13 @@ namespace VertoExcercise.Controllers
             List<string> titles = new List<string>();
             foreach (var geoSearch in wikiGeoSearches)
             {
-                var innerPage = client.GetWikiImages(geoSearch.Pageid);
-                var innerResult = innerPage;
+                var innerResult = client.GetWikiImages(geoSearch.Pageid);
+                
                 string title = string.Empty;
                 foreach (var wikiImage in  innerResult.Images)
                 {
                     if (wikiImage.Title.StartsWith("File:"))
-                        title = wikiImage.Title.Substring("File:".Length + 1);
+                        title = wikiImage.Title.Substring("File:".Length );
                     else
                         title = wikiImage.Title;
                     titles.Add(title);
