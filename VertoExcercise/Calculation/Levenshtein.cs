@@ -33,7 +33,7 @@ namespace VertoExcercise.Calculation
          * @return The computed Levenshtein distance.
          * @throws NullPointerException if s1 or s2 is null.
          */
-        public int distance(string s1, string s2)
+        public int Distance(string s1, string s2)
         {
             if (s1 == null)
             {

@@ -12,7 +12,7 @@ namespace VertoExcercise.Models
         {
             S = titleS;
             T = titleT;
-            Distance = new Levenshtein().distance(S, T);
+            Distance = new Levenshtein().Distance(S, T);
         }
 
         public string S { get; set; }
